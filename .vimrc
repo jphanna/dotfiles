@@ -14,29 +14,36 @@ set incsearch " search as characters are entered
 set hlsearch " highlight matches
 set noswapfile
 
-" HTML
-autocmd FileType html set sw=2
-autocmd FileType html set ts=2
-autocmd FileType html set sts=2
-autocmd FileType html set textwidth=0
+augroup configgroup
+  autocmd!
+  autocmd VimEnter * highlight clear SignColumn
+  autocmd BufWritePre *.js,*.css,*.md,*.py %s/\s\+$//e
 
-" CSS
-autocmd FileType css set sw=2
-autocmd FileType css set ts=2
-autocmd FileType css set sts=2
-autocmd FileType css set textwidth=80
+  " HTML
+  autocmd FileType html set sw=2
+  autocmd FileType html set ts=2
+  autocmd FileType html set sts=2
+  autocmd FileType html set textwidth=0
 
-" JavaScript
-autocmd FileType javascript set sw=2
-autocmd FileType javascript set ts=2
-autocmd FileType javascript set sts=2
-autocmd FileType javascript set textwidth=80
+  " CSS
+  autocmd FileType css set sw=2
+  autocmd FileType css set ts=2
+  autocmd FileType css set sts=2
+  autocmd FileType css set textwidth=80
 
-" Python
-autocmd FileType python set sw=4
-autocmd FileType python set ts=4
-autocmd FileType python set sts=4
-autocmd FileType python set textwidth=80
+  " JavaScript
+  autocmd FileType javascript set sw=2
+  autocmd FileType javascript set ts=2
+  autocmd FileType javascript set sts=2
+  autocmd FileType javascript set textwidth=80
+
+  " Python
+  autocmd FileType python set sw=4
+  autocmd FileType python set ts=4
+  autocmd FileType python set sts=4
+  autocmd FileType python set textwidth=80
+  autocmd FileType python setlocal commentstring=#\ %s
+augroup END
 
 execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
