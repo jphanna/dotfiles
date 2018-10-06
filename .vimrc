@@ -1,5 +1,6 @@
 syntax enable
-:colorscheme dracula
+set t_Co=256
+:colorscheme night-owl 
 set filetype=on
 filetype indent on
 filetype plugin on
@@ -47,3 +48,4 @@ augroup END
 
 execute pathogen#infect()
 map <C-n> :NERDTreeToggle<CR>
+let g:airline_powerline_fonts = 1
